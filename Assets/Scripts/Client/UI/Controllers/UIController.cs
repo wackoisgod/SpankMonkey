@@ -9,69 +9,69 @@ using UnityEngine.EventSystems;
 [ExecuteInEditMode]
 public class UIController : MonoBehaviour
 {
-    public enum VisualState
-    {
-        Shown,
-        Hidden
-    }
+	public enum VisualState
+	{
+		Shown,
+		Hidden
+	}
 
-    [SerializeField] private UIManager.UIControllerID _controllerId = UIManager.UIControllerID.None;
+	[SerializeField] private UIManager.UIControllerID _controllerId = UIManager.UIControllerID.None;
 
-    public UIManager.UIControllerID Id => _controllerId;
+	public UIManager.UIControllerID Id => _controllerId;
 
-    [Serializable]
-    public class VisualStateEvent : UnityEvent<UIController, VisualState, bool>
-    {
-    }
+	[Serializable]
+	public class VisualStateEvent : UnityEvent<UIController, VisualState, bool>
+	{
+	}
 
-    public VisualStateEvent OnVisualStateChange = new VisualStateEvent();
+	public VisualStateEvent OnVisualStateChange = new VisualStateEvent();
 
-    private VisualState _currentVisualState = VisualState.Hidden;
+	private VisualState _currentVisualState = VisualState.Hidden;
 
-    protected virtual bool IsActive()
-    {
-        return enabled && gameObject.activeInHierarchy;
-    }
+	protected virtual bool IsActive()
+	{
+		return enabled && gameObject.activeInHierarchy;
+	}
 
-    public void OnSelect(BaseEventData eventData)
-    {
-        //throw new NotImplementedException();
-    }
+	public void OnSelect(BaseEventData eventData)
+	{
+		//throw new NotImplementedException();
+	}
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        //throw new NotImplementedException();
-    }
+	public void OnPointerDown(PointerEventData eventData)
+	{
+		//throw new NotImplementedException();
+	}
 
-    public virtual void Show()
-    {
-        if (!IsActive())
-        {
-            return;
-        }
+	public virtual void Show()
+	{
+		if (!IsActive())
+		{
+			return;
+		}
 
-        if (_currentVisualState == VisualState.Shown)
-        {
-            return;
-        }
+		if (_currentVisualState == VisualState.Shown)
+		{
+			return;
+		}
 
-        _currentVisualState = VisualState.Shown;
-        OnVisualStateChange.Invoke(this, _currentVisualState, true);
-    }
+		_currentVisualState = VisualState.Shown;
+		OnVisualStateChange.Invoke(this, _currentVisualState, true);
+	}
 
-    public virtual void Hide()
-    {
-        if (!IsActive())
-        {
-            return;
-        }
+	public virtual void Hide()
+	{
+		if (!IsActive())
+		{
+			return;
+		}
 
-        if (_currentVisualState == VisualState.Hidden)
-        {
-            return;
-        }
+		if (_currentVisualState == VisualState.Hidden)
+		{
+			return;
+		}
 
-        _currentVisualState = VisualState.Hidden;
-        OnVisualStateChange.Invoke(this, _currentVisualState, false);
-    }
+		_currentVisualState = VisualState.Hidden;
+		OnVisualStateChange.Invoke(this, _currentVisualState, false);
+	}
 }
