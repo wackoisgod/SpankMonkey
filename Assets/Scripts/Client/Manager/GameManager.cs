@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
 	private void SetupManagers()
 	{
 		List<BaseManager> mm = new List<BaseManager> {
+			new AssetManager(),
 			new UIManager()
 		};
 
