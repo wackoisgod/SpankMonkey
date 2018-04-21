@@ -1,0 +1,8 @@
+{
+    "name": "Client",
+    "references": [
+        "Common"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": []
+}
