@@ -25,8 +25,14 @@ public class MatchGem : MonoBehaviour
 	public Cell Cell { get; set; }
 	public MatchPoint Loc { get; set; }
 	public MatchPuzzle Puzzle { get; set; }
+	public string SpriteName { get; private set; }
 
 	private string[] _sprites = new string[] { "0", "dark", "fire", "light", "water", "earth", "attack" };
+
+	void DoSwapMotion(GameObject newGem, GameObject oldGem)
+	{
+		Puzzle.DoAnimatedSwap(newGem, oldGem);
+	}
 
 	public void UpdateSprite()
 	{
@@ -37,8 +43,8 @@ public class MatchGem : MonoBehaviour
 			return;
 		}
 
-		string spriteName = _sprites[(int)CellType];
-		sprite.sprite = Puzzle.MatchAtlas.GetSprite(spriteName);
+		SpriteName = _sprites[(int)CellType];
+		sprite.sprite = Puzzle.MatchAtlas.GetSprite(SpriteName);
 		sprite.enabled = true;
 	}
 
@@ -46,6 +52,51 @@ public class MatchGem : MonoBehaviour
 	{
 		Cell.SetRandomOrb(7);
 		UpdateSprite();
+	}
+
+	public void OnPress(bool isDown)
+	{
+		if (isDown)
+		{
+			if (!Puzzle.CanDrag()) return;
+
+			MatchPuzzle.CurrentGem = gameObject;
+
+			var sprite = GetComponent<SpriteRenderer>();
+			if (sprite != null)
+			{
+				var c = sprite.color;
+				c.a = 0.5f;
+				sprite.color = c;
+
+				MatchCursor.Set(Puzzle.MatchAtlas, SpriteName);
+			}
+
+			Puzzle.StartMatching();
+
+		}
+		else
+		{
+			if (MatchPuzzle.CurrentGem != null)
+			{
+				Puzzle.ResolveTurn();
+			}
+		}
+	}
+
+	public virtual void OnDragOver(GameObject obj)
+	{
+		var gemObject = obj.GetComponent<MatchGem>();
+		if (obj != MatchPuzzle.CurrentGem)
+		{
+			return;
+		}
+
+		DoSwapMotion(gameObject, obj);
+
+		// If we are being swapped, we can reveal the color if it is dark
+		//IsDark = false;
+		Puzzle.DoSwapOrb(this, gemObject);
 	}
 }
 

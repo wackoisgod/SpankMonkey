@@ -15,11 +15,12 @@ public class AnimatedMatchGem : MatchGem
 	{
 		enabled = false;
 		GetComponent<SpriteRenderer>().enabled = false;
-		DestroyImmediate(GetComponent<BoxCollider>());
+		DestroyImmediate(GetComponent<BoxCollider2D>());
 	}
 
 	public void Init(Vector3 newPostion, GameObject owningGem)
 	{
+		enabled = true;
 		gameObject.transform.localPosition = owningGem.transform.localPosition;
 		oldGemPostion = newPostion;
 
