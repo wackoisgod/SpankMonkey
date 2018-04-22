@@ -22,9 +22,12 @@ public class DataReferenceDrawer : DataDrawer
 		EditorGUILayout.BeginHorizontal();
 		EditorGUILayout.LabelField(name);
 		EditorGUILayout.LabelField(dataName);
+
+		var dataRefAttribute = property.GetCustomAttribute<DataReferenceAttribute>();
+
 		if (GUILayout.Button("Change", GUILayout.ExpandWidth(false)))
 		{
-			DataFieldAssignWindow.AssignValue((assignedData, path) => { setValueCallback(assignedData.Id); }, property.Name, property.ReflectedType);
+			DataFieldAssignWindow.AssignValue((assignedData, path) => { setValueCallback(assignedData.Id); }, property.Name, (dataRefAttribute == null ? null :dataRefAttribute.ReferencedType));
 		}
 
 		EditorGUILayout.EndHorizontal();

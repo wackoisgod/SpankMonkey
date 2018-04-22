@@ -9,7 +9,7 @@ public class WorldMapData : BaseData
 	[AssetReference(AssetType = AssetReferenceAttribute.AssetReferenceType.Texture)]
 	public string Image { get; set; }
 	
-	[DataReference( typeof(CityNodeData))]
+	[DataReference(typeof(CityNodeData))]
 	public int[] CityNodes { get; set; }
 }
 
