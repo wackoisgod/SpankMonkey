@@ -35,6 +35,8 @@ public class Cell
 
 public class MatchPuzzle : MonoBehaviour
 {
+	static public MatchPuzzle instance;
+
 	private int maxWidth = 6;
 	private int maxHeight = 5;
 	private float orbScaling;
@@ -62,6 +64,9 @@ public class MatchPuzzle : MonoBehaviour
 	public GameObject Grid;
 
 	public static GameObject CurrentGem;
+
+	void Awake() { instance = this; }
+	void OnDestroy() { instance = null; }
 
 	public void Start()
 	{
@@ -234,7 +239,7 @@ public class MatchPuzzle : MonoBehaviour
 
 		MatchPuzzle.CurrentGem = null;
 
-		//OrbCursor.Clear();
+		MatchCursor.Clear();
 
 		StartMatchCheck();
 
@@ -411,6 +416,7 @@ public class MatchPuzzle : MonoBehaviour
 				int type = (int)_cells[x, y].CellType;
 
 				GameObject go = GameObjectUtils.AddChild(Grid, MatchGemTemplate);
+				go.name = $"{y},{x}";
 				var gg = go.GetComponent<SpriteRenderer>();
 				gg.gameObject.transform.localScale = new Vector2(135, 135);
 				Transform t = go.transform;
