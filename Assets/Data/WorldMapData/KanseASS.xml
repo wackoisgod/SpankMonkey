@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorldMapData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>KanseASS</Name>
+  <Id>153490549</Id>
+  <Image>8b30ab87a6c581b41a5f41c1ec10cd48</Image>
+  <CityNodes>
+    <int>1260067306</int>
+  </CityNodes>
+</WorldMapData>

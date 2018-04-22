@@ -17,5 +17,27 @@
       <TimeSecondsDrag>10</TimeSecondsDrag>
       <OrbTemplate />
     </BaseData>
+    <BaseData xsi:type="WorldMapData">
+      <Name>KanseASS</Name>
+      <Id>153490549</Id>
+      <Image>8b30ab87a6c581b41a5f41c1ec10cd48</Image>
+      <CityNodes>
+        <int>1260067306</int>
+      </CityNodes>
+    </BaseData>
+    <BaseData xsi:type="CityNodeData">
+      <Name>FlamingTrashHeapLosAngeles</Name>
+      <Id>1260067306</Id>
+      <CityName>Los Angeles</CityName>
+      <MaxReinforcementsAvailable>8</MaxReinforcementsAvailable>
+      <MapPosition>
+        <x>800</x>
+        <y>700</y>
+      </MapPosition>
+    </BaseData>
+    <BaseData xsi:type="WorldMapData">
+      <Name>AlsoKansas</Name>
+      <Id>1662164882</Id>
+    </BaseData>
   </Data>
 </CombinedData>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CityNodeData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>FlamingTrashHeapLosAngeles</Name>
+  <Id>1260067306</Id>
+  <CityName>Los Angeles</CityName>
+  <MaxReinforcementsAvailable>8</MaxReinforcementsAvailable>
+  <MapPosition>
+    <x>800</x>
+    <y>700</y>
+  </MapPosition>
+</CityNodeData>

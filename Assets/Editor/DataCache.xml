@@ -13,5 +13,23 @@
       <Id>2134427956</Id>
       <Type>UnitData</Type>
     </DataInfo>
+    <DataInfo>
+      <Name>KanseASS</Name>
+      <FilePath>/Data/WorldMapData/KanseASS.xml</FilePath>
+      <Id>153490549</Id>
+      <Type>WorldMapData</Type>
+    </DataInfo>
+    <DataInfo>
+      <Name>FlamingTrashHeapLosAngeles</Name>
+      <FilePath>/Data/CityNodeData/FlamingTrashHeapLosAngeles.xml</FilePath>
+      <Id>1260067306</Id>
+      <Type>CityNodeData</Type>
+    </DataInfo>
+    <DataInfo>
+      <Name>AlsoKansas</Name>
+      <FilePath>/Data/WorldMapData/AlsoKansas.xml</FilePath>
+      <Id>1662164882</Id>
+      <Type>WorldMapData</Type>
+    </DataInfo>
   </Data>
 </DataEditorCache>

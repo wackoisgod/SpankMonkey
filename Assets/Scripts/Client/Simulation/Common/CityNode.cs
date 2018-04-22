@@ -11,6 +11,11 @@ public class CityNodeUnityHandle
 	public CityNodeData CityData { get; set; }
 	public GameObject Obj { get; set; }
 
+
+	// $AK IMPORTANT NOTE:
+	//	* The positions are calcualted as such ((pixel_position / 100f) * 5.0f) 
+	//  * This is because sprite.create is 100 pixels per meter when its created, then the scale is set to 5
+
 	public void Setup()
 	{
 		Vector2 position = CityData.MapPosition;
@@ -18,10 +23,12 @@ public class CityNodeUnityHandle
 		position *= 5f;
 
 		Obj = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-		Obj.GetComponent<Material>().color = Color.red;
+		Obj.name = CityData.CityName;
+		Obj.GetComponent<MeshRenderer>().material.color = Color.red;
 		Obj.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
 		Obj.transform.position = new Vector3(position.x, position.y, 0.0f);
 	}
+
 	public void Destroy()
 	{
 		CityData = null;
@@ -73,9 +80,20 @@ public class CityNode : IOverworldSimulationObject
 
 	}
 
+	public void Suspend(OverworldState state)
+	{
+
+	}
+
+	public void Resume(OverworldState state)
+	{
+
+	}
+
 	private int _numReinforcements;
 
 	private List<int> _gameUnits;
+	public List<int> UnitsHere => _gameUnits;
 
 	public void IncrementNumReinforcements()
 	{

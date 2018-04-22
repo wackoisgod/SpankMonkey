@@ -23,9 +23,11 @@ public class UnityMapHandle
 	}
 }
 
+
 public class GameMapManager : BaseManager
 {
 	public static GameMapManager Instance { get; private set; }
+
 	private List<CityNode> _cities = new List<CityNode>();
 	public List<CityNode> Cities => _cities;
 
@@ -33,6 +35,10 @@ public class GameMapManager : BaseManager
 
 	public UnityMapHandle GetMapHandle()
 	{
+		if (_mapHandle == null)
+		{
+			Debug.LogError("GameMapManager::_mapHandle was null");
+		}
 		return _mapHandle;
 	}
 
@@ -43,20 +49,23 @@ public class GameMapManager : BaseManager
 	{
 		if (Instance == null)
 			Instance = this;
+
+		GameManager.Instance.OnApplicationStateChanged += OnApplicationStateChange;
 	}
 
 	public override void Begin()
 	{
 		base.Begin();
-		GameManager.Instance.OnApplicationStateChanged += OnApplicationStateChange;
 
+		// Hardcode the shit, test it
+		// When moving to multiple maps, load them in and check the city name of the map we want to use
 		List<WorldMapData> maps = new List<WorldMapData>(DataStore.GetDataOfType<WorldMapData>());
 		Debug.Assert(maps.Count > 0);
 		_mapHandle = new UnityMapHandle();
 		_mapHandle.MapData = maps[0];
 
-		AssetStore.LoadAndGetAsset(maps[0].Image, LoadMap);
 		OverworldGameSimulation.InitInstance();
+		AssetStore.LoadAndGetAsset(maps[0].Image, LoadMap);
 	}
 
 	void LoadMap(bool succeeded, object result)
@@ -82,6 +91,14 @@ public class GameMapManager : BaseManager
 		if (prevState == newState)
 		{
 			return;
+		}
+		else if (newState == GameManager.ApplicationState.MatchingGame)
+		{
+			OverworldGameSimulation.Instance.Suspend();
+		}
+		else if (newState == GameManager.ApplicationState.OverworldGame)
+		{
+			OverworldGameSimulation.Instance.Resume();
 		}
 	}
 }

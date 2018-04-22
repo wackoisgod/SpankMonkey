@@ -60,6 +60,16 @@ public class OverworldState
 		return result;
 	}
 
+	public BattleResult ResolveBattle(CityNode playerCity, List<int> enemyUnitHandles)
+	{
+		return ResolveBattle(playerCity.UnitsHere, enemyUnitHandles);
+	}
+
+	public BattleResult ResolveBattle(List<int> playerUnitHandles, CityNode enemyCity)
+	{
+		return ResolveBattle(playerUnitHandles, enemyCity.UnitsHere);
+	}
+
 	public BattleResult ResolveBattle(List<int> playerUnitHandles, List<int> enemyUnitHandles)
 	{
 		List<OverworldGameUnit> playerUnits = ToGameUnits(playerUnitHandles);

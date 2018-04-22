@@ -9,4 +9,6 @@ public interface IOverworldSimulationObject
 	void SetId(int Id);
 	int GetId();
 	void Tick();
+	void Suspend(OverworldState state);
+	void Resume(OverworldState state);
 }
