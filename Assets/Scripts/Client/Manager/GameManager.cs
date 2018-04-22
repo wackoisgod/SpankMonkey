@@ -64,7 +64,8 @@ public class GameManager : MonoBehaviour
 	{
 		List<BaseManager> mm = new List<BaseManager> {
 			new AssetManager(),
-			new UIManager()
+			new UIManager(),
+			new GameMapManager()
 		};
 
 		_managers = mm.ToArray();
