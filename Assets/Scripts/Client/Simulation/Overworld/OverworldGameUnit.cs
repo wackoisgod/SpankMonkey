@@ -14,6 +14,15 @@ public class OverworldGameUnit
 {
 	public UnitData Data { get; set; }
 
+	public bool IsInStack
+	{
+		get
+		{
+			return (Prev != null) || (Next != null);
+		}
+		
+	}
+
 	public int Id;
 	public OverworldGameUnit Prev;
 	public OverworldGameUnit Next;

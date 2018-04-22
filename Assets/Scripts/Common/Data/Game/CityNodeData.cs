@@ -8,5 +8,6 @@ public class CityNodeData : BaseData
 {
 	public string CityName { get; set; }
 	public int MaxReinforcementsAvailable { get; set; }
+	public UnityEngine.Vector2 MapPosition { get; set; }
 }
 

@@ -32,6 +32,12 @@ public class OverworldState
 
 	public void PushToUnitStack(int unitID)
 	{
+		if (_overworldUnits.Count > 0)
+		{
+			_overworldUnits[unitID].Prev = _overworldUnits[unitID - 1];
+			_overworldUnits[unitID - 1].Next = _overworldUnits[unitID];
+		}
+		
 		_currentUnitStack.Add(unitID);
 	}
 
@@ -46,7 +52,7 @@ public class OverworldState
 	{
 		List<OverworldGameUnit> result = new List<OverworldGameUnit>();
 
-		foreach (int unit in inUnits) 
+		foreach (int unit in inUnits)
 		{
 			result.Add(OverworldUnits[unit]);
 		}
@@ -59,6 +65,11 @@ public class OverworldState
 		List<OverworldGameUnit> playerUnits = ToGameUnits(playerUnitHandles);
 		List<OverworldGameUnit> enemyUnits = ToGameUnits(enemyUnitHandles);
 
+		return ResolveBattle(playerUnits, enemyUnits);
+	}
+
+	public BattleResult ResolveBattle(List<OverworldGameUnit> playerUnits, List<OverworldGameUnit> enemyUnits)
+	{
 		return BattleResult.Win;
 	}
 

@@ -6,5 +6,7 @@ using System.Threading.Tasks;
 
 public interface IOverworldSimulationObject
 {
-	void Tick(float DT);
+	void SetId(int Id);
+	int GetId();
+	void Tick();
 }

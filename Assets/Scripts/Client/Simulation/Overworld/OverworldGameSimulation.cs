@@ -8,6 +8,16 @@ using UnityEngine;
 
 public class OverworldGameSimulation
 {
+	public static OverworldGameSimulation Instance { get; private set; }
+
+	public static void InitInstance()
+	{
+		if (Instance == null)
+		{
+			Instance = new OverworldGameSimulation();
+		}
+	}
+
 	public enum State
 	{
 		Move,
@@ -18,6 +28,7 @@ public class OverworldGameSimulation
 
 	public void AddSimulationObject(IOverworldSimulationObject inObj)
 	{
+		inObj.SetId(_simObjects.Count);
 		_simObjects.Add(inObj);
 	}
 
@@ -33,7 +44,13 @@ public class OverworldGameSimulation
 	
 	public void Tick()
 	{
-
+		if (_simObjects.Count > 0)
+		{
+			foreach (var obj in _simObjects)
+			{
+				obj.Tick();
+			}
+		}
 	}
 
 }
