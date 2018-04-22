@@ -70,5 +70,17 @@ public abstract class AssetStore
 		_assetCache[guid] = asset;
 	}
 
+	public static void LoadAndGetAsset(string guid, Action<bool, object> onLoadCompleteCallback)
+	{
+		LoadAsset(guid, () =>
+		{
+			object other = null;
+			bool result = false;
+
+			result = GetAsset(guid, out other);
+			onLoadCompleteCallback(result, other);
+		});
+	}
+
 	#endregion
 }
