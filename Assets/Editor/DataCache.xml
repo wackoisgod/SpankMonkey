@@ -3,7 +3,7 @@
   <Data>
     <DataInfo>
       <Name>TestUnit</Name>
-      <FilePath>/Data/UnitData/TestUnit.xml</FilePath>
+      <FilePath>\Data\UnitData\TestUnit.xml</FilePath>
       <Id>2134427956</Id>
       <Type>UnitData</Type>
     </DataInfo>

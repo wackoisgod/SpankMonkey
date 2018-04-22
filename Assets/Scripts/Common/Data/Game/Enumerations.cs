@@ -24,6 +24,13 @@ public class Enumerations
 		PlayerNone
 	}
 
+	public enum UnitType
+	{
+		Light,
+		Heavy,
+		VeryHeavy
+	}
+
 	public enum DragTargets
 	{
 		Board,
