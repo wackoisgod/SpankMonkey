@@ -78,6 +78,7 @@ public class ClientDataLoader : DataLoader
 		try
 		{
 			XMLAssetLoader loader = new XMLAssetLoader(inType, location);
+			loader.Block = true;
 			loader.OnCompleteLoading += OnXMLLoadComplete;
 			loader.OnFailedLoading += OnXMLFailedLoad;
 			AssetManager.Instance.RequestAssetLoad(loader);
@@ -94,6 +95,7 @@ public class ClientDataLoader : DataLoader
 		try
 		{
 			XMLAssetLoader loader = new XMLAssetLoader(inType, location);
+			loader.Block = true;
 			loader.OnCompleteLoading += OnXMLLoadComplete;
 			loader.OnFailedLoading += OnXMLFailedLoad;
 			AssetManager.Instance.RequestAssetLoad(loader);

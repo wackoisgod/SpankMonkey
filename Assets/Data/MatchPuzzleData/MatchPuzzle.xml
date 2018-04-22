@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MatchPuzzleData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>MatchPuzzle</Name>
+  <Id>39128290</Id>
+  <MaxOrbCount>30</MaxOrbCount>
+  <OrbSpacingX>125</OrbSpacingX>
+  <OrbSpacingY>-10</OrbSpacingY>
+  <MaxWidth>6</MaxWidth>
+  <MaxHeight>5</MaxHeight>
+  <OrbScaling>1</OrbScaling>
+  <TimeSecondsDrag>10</TimeSecondsDrag>
+  <OrbTemplate />
+</MatchPuzzleData>

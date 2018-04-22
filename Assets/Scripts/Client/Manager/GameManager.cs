@@ -1,4 +1,5 @@
 ﻿using Common.Logging;
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -54,9 +55,12 @@ public class GameManager : MonoBehaviour
 			LogManager.IsEnabled = true;
 			LogManager.AttachLogTarget(new UnityLogTarget(Common.Logging.Logger.Level.Trace, Common.Logging.Logger.Level.Error, true));
 
+			DOTween.Init();
+
 			StartupTime = DateTime.Now;
 
 			SetupManagers();
+
 		}
 	}
 
@@ -64,7 +68,7 @@ public class GameManager : MonoBehaviour
 	{
 		List<BaseManager> mm = new List<BaseManager> {
 			new AssetManager(),
-			new UIManager(),
+			new MatchGameManager(),
 			new GameMapManager()
 		};
 

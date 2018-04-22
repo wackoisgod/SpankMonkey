@@ -7,5 +7,11 @@
       <Id>2134427956</Id>
       <Type>UnitData</Type>
     </DataInfo>
+    <DataInfo>
+      <Name>MatchPuzzle</Name>
+      <FilePath>/Data/MatchPuzzleData/MatchPuzzle.xml</FilePath>
+      <Id>39128290</Id>
+      <Type>MatchPuzzleData</Type>
+    </DataInfo>
   </Data>
 </DataEditorCache>

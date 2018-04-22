@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: MatchGameAtlas
+  m_EditorData:
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 1024
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 0
+    platformSettings: []
+    packingParameters:
+      serializedVersion: 2
+      padding: 2
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: d8015eb10b3148c4dbb575aa599dfe71, type: 3}
+    - {fileID: 2800000, guid: 5c76651c1ee53e84aa23b113ad3494df, type: 3}
+    - {fileID: 2800000, guid: f5e2115b5bf352d43beba4c3d35091a1, type: 3}
+    - {fileID: 2800000, guid: 4f78544eb5af2ee42b2bd85e27891ac1, type: 3}
+    - {fileID: 2800000, guid: 6750a9414c086e347a84c38da1676ebc, type: 3}
+    - {fileID: 2800000, guid: dbdfdf583e71f2e4d9201f7e724003b3, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 6750a9414c086e347a84c38da1676ebc, type: 3}
+  - {fileID: 21300000, guid: d8015eb10b3148c4dbb575aa599dfe71, type: 3}
+  - {fileID: 21300000, guid: dbdfdf583e71f2e4d9201f7e724003b3, type: 3}
+  - {fileID: 21300000, guid: f5e2115b5bf352d43beba4c3d35091a1, type: 3}
+  - {fileID: 21300000, guid: 5c76651c1ee53e84aa23b113ad3494df, type: 3}
+  - {fileID: 21300000, guid: 4f78544eb5af2ee42b2bd85e27891ac1, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - light
+  - attack
+  - water
+  - earth
+  - dark
+  - fire
+  m_Tag: MatchGameAtlas
+  m_IsVariant: 0

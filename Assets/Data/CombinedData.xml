@@ -5,5 +5,17 @@
       <Name>TestUnit</Name>
       <Id>2134427956</Id>
     </BaseData>
+    <BaseData xsi:type="MatchPuzzleData">
+      <Name>MatchPuzzle</Name>
+      <Id>39128290</Id>
+      <MaxOrbCount>30</MaxOrbCount>
+      <OrbSpacingX>125</OrbSpacingX>
+      <OrbSpacingY>-10</OrbSpacingY>
+      <MaxWidth>6</MaxWidth>
+      <MaxHeight>5</MaxHeight>
+      <OrbScaling>1</OrbScaling>
+      <TimeSecondsDrag>10</TimeSecondsDrag>
+      <OrbTemplate />
+    </BaseData>
   </Data>
 </CombinedData>
