@@ -82,9 +82,6 @@ public class UIManager : BaseManager
 			case GameManager.ApplicationState.MainMenu:
 				PushUIController(UIControllerID.MainMenu);
 				break;
-			case GameManager.ApplicationState.BuildingGame:
-				PushUIController(UIControllerID.BuildingGame);
-				break;
 		}
 	}
 
