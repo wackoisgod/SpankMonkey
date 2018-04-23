@@ -123,6 +123,20 @@ public class OverworldGameSimulation
 		Tick();
 	}
 
+	public List<IOverworldSimulationObject> SimObjectsUnderPosition(Vector2 position)
+	{
+		List<IOverworldSimulationObject> simObjects = _simObjects.FindAll((x) => { return Vector2.Distance(x.GetPosition(), position) < 6; });
+
+		// Bad hack, need this to return a list for the sake of returning a list
+		List<IOverworldSimulationObject> cityTest = simObjects.FindAll((x) => { return x.GetObjectType() == OverworldSimObjectType.City; });
+
+		if (cityTest.Count > 0)
+		{
+			return cityTest;
+		}
+		return simObjects;
+	}
+
 	public void ProcessEvent(EventMessage message)
 	{
 

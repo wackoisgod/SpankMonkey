@@ -5,6 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 
+public enum OverworldSimObjectType
+{
+	Unit,
+	City
+}
+
 public interface IOverworldSimulationObject
 {
 	void SetId(int Id);
@@ -13,4 +19,5 @@ public interface IOverworldSimulationObject
 	void Suspend(OverworldState state);
 	void Resume(OverworldState state);
 	UnityEngine.Vector2 GetPosition();
+	OverworldSimObjectType GetObjectType();
 }

@@ -74,6 +74,11 @@ public class OverworldGameUnit : IOverworldSimulationObject
 		return CurrentPosition;
 	}
 
+	public OverworldSimObjectType GetObjectType()
+	{
+		return OverworldSimObjectType.Unit;
+	}
+
 	private bool _needsMove;
 	public Vector2 Destination { get; set; }
 	public Vector2 CurrentPosition { get; private set; }

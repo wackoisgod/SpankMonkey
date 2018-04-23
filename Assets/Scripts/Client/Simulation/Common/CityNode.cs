@@ -96,6 +96,11 @@ public class CityNode : IOverworldSimulationObject
 		return _cityData.MapPosition;
 	}
 
+	public OverworldSimObjectType GetObjectType()
+	{
+		return OverworldSimObjectType.City;
+	}
+
 	private int _numReinforcements;
 
 	private List<int> _gameUnits;
@@ -116,7 +121,4 @@ public class CityNode : IOverworldSimulationObject
 			_numReinforcements--;
 		}
 	}
-
-
-
 }
