@@ -11,7 +11,9 @@ public class UIManager : BaseManager
 		Splash,
 		Loading,
 		MainMenu,
-		BuildingGame
+		BuildingGame,
+		LoadingGame,
+		OverworldGame,
 	}
 
 	public enum UIControllerID
@@ -20,7 +22,9 @@ public class UIManager : BaseManager
 		Splash = 1,
 		Loading = 2,
 		MainMenu = 3,
-		BuildingGame = 4
+		BuildingGame = 4,
+		LoadingGame = 5,
+		OverworldGame = 6,
 	}
 
 	public static UIManager Instance { get; private set; }
@@ -45,7 +49,7 @@ public class UIManager : BaseManager
 		// we grab the UI Root and we set it not to destroy so when we load different scenes
 		// we can change objects and such :P 
 		UIRootGameObject = GameObject.FindGameObjectWithTag("UIRoot");
-		UnityEngine.Object.DontDestroyOnLoad(UIRootGameObject);
+		UnityEngine.Object.DontDestroyOnLoad(UIRootGameObject); 
 
 		UIController[] controllers = UIRootGameObject.GetComponentsInChildren<UIController>(true);
 		foreach (UIController item in controllers)
@@ -82,6 +86,9 @@ public class UIManager : BaseManager
 			case GameManager.ApplicationState.MainMenu:
 				PushUIController(UIControllerID.MainMenu);
 				break;
+			case GameManager.ApplicationState.LoadingGame:
+				PushUIController(UIControllerID.LoadingGame);
+			break;
 		}
 	}
 

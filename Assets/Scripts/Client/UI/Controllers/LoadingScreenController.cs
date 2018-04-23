@@ -43,9 +43,11 @@ public class LoadingScreenController : MonoBehaviour
 	private void PhaseTwoLoad()
 	{
 		// load the data store with the downloaded data ? 
-		ClientDataLoader ccDataLoad = new ClientDataLoader();
-		ccDataLoad.OnDataLoadComplete += errors => { PhaseThreeLoad(); };
-		ccDataLoad.PopulateDataStore();
+		//ClientDataLoader ccDataLoad = new ClientDataLoader();
+		//ccDataLoad.OnDataLoadComplete += errors => { PhaseThreeLoad(); };
+		//ccDataLoad.PopulateDataStore();
+
+		PhaseThreeLoad();
 	}
 
 	private void PhaseThreeLoad()

@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 		MatchingGame,
 		OverworldGame,
 		Loading,
+		LoadingGame,
 		MainMenu
 	}
 
@@ -69,6 +70,7 @@ public class GameManager : MonoBehaviour
 	{
 		List<BaseManager> mm = new List<BaseManager> {
 			new AssetManager(),
+			new UIManager(),
 			new MatchGameManager(),
 			new GameMapManager()
 		};
@@ -80,7 +82,6 @@ public class GameManager : MonoBehaviour
 		}
 
 		ClientDataLoader ccDataLoad = new ClientDataLoader();
-		//ccDataLoad.OnDataLoadComplete += errors => { PhaseThreeLoad(); };
 		ccDataLoad.PopulateDataStore();
 	}
 
