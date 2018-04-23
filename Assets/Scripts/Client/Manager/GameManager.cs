@@ -78,6 +78,10 @@ public class GameManager : MonoBehaviour
 		{
 			c.Init();
 		}
+
+		ClientDataLoader ccDataLoad = new ClientDataLoader();
+		//ccDataLoad.OnDataLoadComplete += errors => { PhaseThreeLoad(); };
+		ccDataLoad.PopulateDataStore();
 	}
 
 	private bool _started;
