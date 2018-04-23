@@ -31,6 +31,9 @@ public class GameMapManager : BaseManager
 	private List<CityNode> _cities = new List<CityNode>();
 	public List<CityNode> Cities => _cities;
 
+	private Dictionary<string, WorldMapData> _maps = new Dictionary<string, WorldMapData>();
+	
+
 	private UnityMapHandle _mapHandle;
 
 	public UnityMapHandle GetMapHandle()
@@ -60,12 +63,12 @@ public class GameMapManager : BaseManager
 		// Hardcode the shit, test it
 		// When moving to multiple maps, load them in and check the city name of the map we want to use
 		List<WorldMapData> maps = new List<WorldMapData>(DataStore.GetDataOfType<WorldMapData>());
-		Debug.Assert(maps.Count > 0);
-		_mapHandle = new UnityMapHandle();
-		_mapHandle.MapData = maps[0];
-
+		
+		foreach (WorldMapData data in maps)
+		{
+			_maps.Add(data.Name, data);
+		}
 		OverworldGameSimulation.InitInstance();
-		AssetStore.LoadAndGetAsset(maps[0].Image, LoadMap);
 	}
 
 	void LoadMap(bool succeeded, object result)

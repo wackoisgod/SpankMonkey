@@ -10,6 +10,7 @@ public class UnitMovementComponent : MonoBehaviour
 {
 	private Vector3 _destination;
 	private bool _needsMove;
+	//public OverworldGameUnit ReferencedUnit { get; set; }
 	public Vector3 Destination
 	{
 		get
@@ -33,10 +34,11 @@ public class UnitMovementComponent : MonoBehaviour
 	{
 		if (_needsMove)
 		{
-			if (Vector3.Distance(transform.position, _destination) < _minDistance)
-			{
-				transform.Translate(_destination - transform.position * Speed);
-			}
+			transform.localPosition = Destination;
+			//if (Vector3.Distance(transform.position, _destination) < _minDistance)
+			//{
+			//	transform.Translate(_destination - transform.position * Speed);
+			//}
 		}
 	}
 

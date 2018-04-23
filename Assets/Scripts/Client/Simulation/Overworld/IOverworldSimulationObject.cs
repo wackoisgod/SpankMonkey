@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 public interface IOverworldSimulationObject
 {
 	void SetId(int Id);
@@ -11,4 +12,5 @@ public interface IOverworldSimulationObject
 	void Tick();
 	void Suspend(OverworldState state);
 	void Resume(OverworldState state);
+	UnityEngine.Vector2 GetPosition();
 }

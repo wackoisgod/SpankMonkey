@@ -19,6 +19,8 @@ public class OverworldState
 
 	private List<int> _currentUnitStack = null;
 
+	private string _currentMap;
+
 	public void RegisterUnit(OverworldGameUnit unit)
 	{
 		unit.Id = _overworldUnits.Count;

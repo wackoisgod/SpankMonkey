@@ -6,11 +6,28 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 
+public enum OverworldMessageType
+{
+	Click,
+	Hold,
+	EndTurnButton
+}
+
+public struct EventMessage
+{
+	public OverworldMessageType MessageType { get; set; }
+	public Vector2 ClickPosition { get; set; }
+	public Vector2 DragDirection { get; set; }
+}
+
 public class OverworldGameSimulation
 {
 	public static OverworldGameSimulation Instance { get; private set; }
 	private OverworldState _state = new OverworldState();
 	public OverworldState GameState => _state;
+
+	//private Queue<EventMessage> _eventQueue = new Queue<EventMessage>();
+	//public Queue<EventMessage> EventQueue => _eventQueue;
 
 	public static void InitInstance()
 	{
@@ -29,6 +46,34 @@ public class OverworldGameSimulation
 	private List<IOverworldSimulationObject> _simObjects = new List<IOverworldSimulationObject>();
 	private bool _suspended = false;
 	public bool IsSuspended => _suspended;
+
+	private WorldMapData _currentMap;
+	private bool _assignedMap = false;
+
+	public WorldMapData CurrentMap
+	{
+		get
+		{
+			return _currentMap;
+		}
+		set
+		{
+			_currentMap = value;
+			if (value == null)
+			{
+				_assignedMap = false;
+			}
+			else
+			{
+				_assignedMap = true;
+			}
+		}
+	}
+
+	public bool HasSuspendedState()
+	{
+		return (_assignedMap && _simObjects.Count > 0);
+	}
 
 	public void AddSimulationObject(IOverworldSimulationObject inObj)
 	{
@@ -54,6 +99,12 @@ public class OverworldGameSimulation
 		}
 	}
 
+	public void DumpMap()
+	{
+		CurrentMap = null;
+		_simObjects.Clear();
+	}
+
 	public void Resume()
 	{
 		_suspended = false;
@@ -66,9 +117,15 @@ public class OverworldGameSimulation
 		}
 	}
 
-	void EndTurn()
+	public void EndTurn()
 	{
-		
+		// $AK This just stubs out some of the important functionality here
+		Tick();
+	}
+
+	public void ProcessEvent(EventMessage message)
+	{
+
 	}
 	
 	// This tick is called when the overworld map updates

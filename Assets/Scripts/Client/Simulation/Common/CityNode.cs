@@ -24,6 +24,7 @@ public class CityNodeUnityHandle
 
 		Obj = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 		Obj.name = CityData.CityName;
+		Obj.tag = "city";
 		Obj.GetComponent<MeshRenderer>().material.color = Color.red;
 		Obj.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
 		Obj.transform.position = new Vector3(position.x, position.y, 0.0f);
@@ -88,6 +89,11 @@ public class CityNode : IOverworldSimulationObject
 	public void Resume(OverworldState state)
 	{
 
+	}
+
+	public Vector2 GetPosition()
+	{
+		return _cityData.MapPosition;
 	}
 
 	private int _numReinforcements;

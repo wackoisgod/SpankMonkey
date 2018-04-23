@@ -22,6 +22,7 @@ public class OverworldGameUnitUnityHandle
 	public void Setup()
 	{
 		Obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
+		Obj.tag = "unit";
 		Obj.transform.localScale = new Vector3(0.03f, 0.03f);
 		Obj.GetComponent<Material>().color = Color.blue;
 		MovementComponent = Obj.AddComponent<UnitMovementComponent>();
@@ -66,6 +67,11 @@ public class OverworldGameUnit : IOverworldSimulationObject
 	public void Resume(OverworldState state)
 	{
 
+	}
+
+	public Vector2 GetPosition()
+	{
+		return CurrentPosition;
 	}
 
 	private bool _needsMove;
