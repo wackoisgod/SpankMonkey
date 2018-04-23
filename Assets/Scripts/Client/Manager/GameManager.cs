@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour
 	{
 		Invalid,
 		Splash,
-		BuildingGame,
+		MatchingGame,
+		OverworldGame,
 		Loading,
 		MainMenu
 	}
